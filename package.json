@@ -1,0 +1,15 @@
+{
+  "name": "pre-work-nest",
+  "version": "1.0.0",
+  "main": "vk_to_rs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "ffjavascript": "^0.3.1"
+  }
+}
