@@ -1,8 +1,8 @@
 import * as anchor from "@coral-xyz/anchor";
-import { Program } from "@coral-xyz/anchor";
+import { BN, Program } from "@coral-xyz/anchor";
 import { ZkVerifier } from "../target/types/zk_verifier";
 import * as snarkjs from "snarkjs";
-import { BN } from "bn.js";
+
 
 describe("zk-verifier", () => {
   // Configure the client to use the local cluster.
@@ -14,17 +14,13 @@ describe("zk-verifier", () => {
 
     const { proof, publicSignals } = await snarkjs.groth16.fullProve(
       {
-        a: BigInt(7), b: BigInt(2)
+        a: BigInt(3), b: BigInt(4)
       
       },
         "../mult_js/mult.wasm",
         "../circuit_0000.zkey"
     )
-
-    const instruction_args = {
-
-    }
-    // Add your test here.
+   
     const tx = await program.methods.verify(new BN(publicSignals[0].toString()), Array.from(convertProofToBytes(proof))).rpc();
     console.log("Your transaction signature", tx);
   });
