@@ -17,8 +17,8 @@ describe("zk-verifier", () => {
         a: BigInt(3), b: BigInt(4)
       
       },
-        "../mult_js/mult.wasm",
-        "../circuit_0000.zkey"
+         "../circuit/multiply2numbers_js/multiply2numbers.wasm",
+      "../circuit/multiply2numbers_0002.zkey"
     )
    
     const tx = await program.methods.verify(new BN(publicSignals[0].toString()), Array.from(convertProofToBytes(proof))).rpc();
